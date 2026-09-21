@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Durban Web Studio | Websites for small businesses in Durban</title>
+  <meta name="description" content="Simple one-page websites for small businesses in Durban. See three example designs and get in touch.">
+
+  <!-- The small icon shown in the browser tab. -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- SHARING PREVIEW: the title, text and picture shown when this link is
+       shared on WhatsApp, Facebook and similar apps.
+       After you publish the site, replace REPLACE_WITH_YOUR_SITE_ADDRESS
+       with your real address, for example  yourname.pages.dev  -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Durban Web Studio">
+  <meta property="og:description" content="Simple one-page websites for small businesses in Durban.">
+  <meta property="og:image" content="https://REPLACE_WITH_YOUR_SITE_ADDRESS/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- FONTS: loaded from Google Fonts. Bricolage Grotesque for headings, Figtree for text. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- All the styling for this page lives in style.css. -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="top">
+
+  <!-- Lets keyboard users jump straight past the menu. Hidden until tabbed to. -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ======================================================
+       SECTION: HEADER
+       The logo and name on the left, page links on the right.
+       ====================================================== -->
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top">
+        <!-- The sunrise logo, drawn with simple shapes. -->
+        <svg viewBox="220 300 640 580" aria-hidden="true">
+          <path d="M240 610 A300 300 0 0 1 840 610 Z" fill="#F0B44C"/>
+          <g fill="#7FB7BE">
+            <rect x="290" y="660" width="500" height="26" rx="13"/>
+            <rect x="350" y="716" width="380" height="26" rx="13" opacity=".8"/>
+            <rect x="410" y="772" width="260" height="26" rx="13" opacity=".6"/>
+            <rect x="470" y="828" width="140" height="26" rx="13" opacity=".4"/>
+          </g>
+        </svg>
+        <span>Durban Web Studio</span>
+      </a>
+      <nav>
+        <a class="nav-link" href="#examples">Examples</a>
+        <a class="btn btn-amber btn-small" href="#contact">Get in touch</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ====================================================
+         SECTION: HERO
+         One clear sentence about what the studio does.
+         ==================================================== -->
+    <section class="hero">
+      <div class="wrap">
+        <h1>Websites for small businesses in Durban.</h1>
+        <p class="hero-text">Simple one-page websites that load fast and work on any phone. Here are three examples.</p>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         SECTION: EXAMPLES
+         Three cards linking to the example websites. The pictures
+         are in the "images" folder.
+         ==================================================== -->
+    <section class="section" id="examples">
+      <div class="wrap">
+        <h2>Examples</h2>
+
+        <div class="card-grid">
+          <a class="card" href="salon/">
+            <img src="images/salon.jpg" width="520" height="667" alt="Preview of the Amber Tide Hair Studio example website on a phone">
+            <div class="card-text">
+              <h3>Amber Tide Hair Studio</h3>
+              <p>Hair salon</p>
+              <span>View example</span>
+            </div>
+          </a>
+
+          <a class="card" href="caterer/">
+            <img src="images/caterer.jpg" width="520" height="667" alt="Preview of the Fire and Saffron Catering example website on a phone">
+            <div class="card-text">
+              <h3>Fire &amp; Saffron Catering</h3>
+              <p>Caterer</p>
+              <span>View example</span>
+            </div>
+          </a>
+
+          <a class="card" href="guesthouse/">
+            <img src="images/guesthouse.jpg" width="520" height="667" alt="Preview of the Bluff View Guest House example website on a phone">
+            <div class="card-text">
+              <h3>Bluff View Guest House</h3>
+              <p>Guesthouse</p>
+              <span>View example</span>
+            </div>
+          </a>
+        </div>
+
+        <p class="small-note">These are concept designs for made-up businesses. Each has a working enquiry form.</p>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         SECTION: CONTACT FORM
+         A working form. When sent, the message is emailed through
+         Web3Forms to the address set up in assets/config.js.
+         ==================================================== -->
+    <section class="section contact-section" id="contact">
+      <div class="wrap contact-grid">
+
+        <!-- Left side: heading and a short line of text. -->
+        <div>
+          <h2>Get in touch</h2>
+          <p class="contact-text">Tell me about your business and what you need. I will reply by email.</p>
+          <a class="btn btn-outline" href="https://www.instagram.com/durbanwebstudio/" rel="noopener">Or message on Instagram</a>
+        </div>
+
+        <!-- Right side: the form, and the thank-you box shown after sending. -->
+        <div>
+          <form id="contact-form" class="form">
+
+            <!-- A hidden trap for spam robots. Real visitors never see it. -->
+            <input type="checkbox" name="botcheck" class="honeypot" tabindex="-1" autocomplete="off">
+
+            <div class="field">
+              <label for="name">Your name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required>
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+
+            <div class="field">
+              <label for="business">Type of business</label>
+              <select id="business" name="business_type" required>
+                <option value="Hair salon">Hair salon</option>
+                <option value="Caterer">Caterer</option>
+                <option value="Guesthouse">Guesthouse</option>
+                <option value="Other">Something else</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+
+            <!-- Errors appear here if something goes wrong when sending. -->
+            <p class="form-error" role="alert"></p>
+
+            <button class="btn btn-amber" type="submit">Send message</button>
+            <p class="form-note">I use your details only to reply to you. <a href="privacy/">Privacy notice</a></p>
+
+            <noscript><p class="form-error">Please turn on JavaScript to send this form.</p></noscript>
+          </form>
+
+          <!-- Shown instead of the form once it has been sent. -->
+          <div id="success" class="success" tabindex="-1" hidden>
+            <svg class="tick" viewBox="0 0 48 48" aria-hidden="true">
+              <circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="3"/>
+              <path d="M14 25l7 7 13-15" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h3>Message sent</h3>
+            <p>Thanks, <span class="who"></span>. I will reply by email as soon as I can.</p>
+            <button class="btn btn-outline" type="button">Send another message</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================================================
+       SECTION: FOOTER
+       ====================================================== -->
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>Durban Web Studio, Durban, South Africa</p>
+      <p><a href="privacy/">Privacy notice</a></p>
+    </div>
+  </footer>
+
+  <!-- ======================================================
+       SCRIPTS (must stay in this order)
+       1. config.js: your access key. 2. form.js: sends the form.
+       3. script.js: connects this page's form.
+       ====================================================== -->
+  <script src="assets/config.js"></script>
+  <script src="assets/form.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

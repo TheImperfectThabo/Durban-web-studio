@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bluff View Guest House | Demo design by Durban Web Studio</title>
+  <meta name="description" content="A demo website for a made-up Durban guesthouse, designed by Durban Web Studio.">
+
+  <!-- Keeps this made-up business out of Google, so nobody mistakes it for a real one. -->
+  <meta name="robots" content="noindex">
+
+  <!-- The small icon shown in the browser tab. -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- FONTS: loaded from Google Fonts. Instrument Serif for headings, Instrument Sans for text. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- All the styling for this page lives in style.css. -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="top">
+
+  <!-- Lets keyboard users jump straight past the menu. Hidden until tabbed to. -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ======================================================
+       SECTION: HEADER
+       The bar at the top. It stays visible while you scroll.
+       ====================================================== -->
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top">Bluff View</a>
+      <nav>
+        <a class="nav-link" href="#rooms">Rooms</a>
+        <a class="nav-link" href="#included">Included</a>
+        <a class="btn btn-dark btn-small" href="#book">Check availability</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ======================================================
+       SECTION: HERO
+       The opening section: the name, a short welcome, two buttons,
+       and a simple sunrise picture made from colour blocks.
+       ====================================================== -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Bluff View<br>Guest House</h1>
+        <p class="hero-text">Quiet rooms, sea air and breakfast included. Ten minutes from the beachfront in Durban.</p>
+        <div class="hero-buttons">
+          <a class="btn btn-dark" href="#book">Check availability</a>
+          <a class="btn btn-outline" href="#rooms">See rooms</a>
+        </div>
+      </div>
+
+      <!-- The picture: coloured bands for sky and sea, plus a round sun. Decoration only. -->
+      <div class="view" aria-hidden="true">
+        <span class="sun"></span>
+      </div>
+    </div>
+  </section>
+
+  <main id="main">
+
+    <!-- ====================================================
+         SECTION: ROOMS
+         Three room types with a price per night. "Choose this room"
+         scrolls to the form and picks the room (see script.js).
+         ==================================================== -->
+    <section class="section" id="rooms">
+      <div class="wrap">
+        <h2>Rooms</h2>
+
+        <div class="room-list">
+          <div class="room">
+            <h3>Garden room</h3>
+            <p>Queen bed, en-suite bathroom and a view of the courtyard.</p>
+            <p class="rate">R750 <small>per night</small></p>
+            <a class="room-link" href="#book" data-choose="Garden room">Choose this room</a>
+          </div>
+
+          <div class="room">
+            <h3>Sea-view room</h3>
+            <p>King bed, a small balcony and a view of the ocean.</p>
+            <p class="rate">R980 <small>per night</small></p>
+            <a class="room-link" href="#book" data-choose="Sea-view room">Choose this room</a>
+          </div>
+
+          <div class="room">
+            <h3>Family room</h3>
+            <p>Two connected rooms that sleep four, with one bathroom.</p>
+            <p class="rate">R1,350 <small>per night</small></p>
+            <a class="room-link" href="#book" data-choose="Family room">Choose this room</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         SECTION: INCLUDED
+         What every guest gets. A simple list with small gold squares.
+         ==================================================== -->
+    <section class="section section-line" id="included">
+      <div class="wrap">
+        <h2>Included in every stay</h2>
+
+        <ul class="included-list">
+          <li>Cooked breakfast from 7 am</li>
+          <li>Fast Wi-Fi throughout</li>
+          <li>Secure off-street parking</li>
+          <li>Tea and coffee in your room</li>
+          <li>Airport transfers on request, at extra cost</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         SECTION: BOOK DIRECT (the enquiry form)
+         A working form. Choose a room and dates and the pale box
+         shows an estimate straight away (see script.js).
+         When sent, the details are emailed through Web3Forms.
+         ==================================================== -->
+    <section class="section book-section" id="book">
+      <div class="wrap book-grid">
+
+        <!-- Left side: heading, explanation, and a note that this is a demo. -->
+        <div>
+          <h2>Book direct</h2>
+          <p class="book-text">Send us your dates and we will reply with availability and the best rate. No booking-site fees, and we can arrange early check-in or late check-out when the room is free.</p>
+          <p class="demo-note">Try it. This form works, but the guesthouse is made up, so your message goes to Durban Web Studio.</p>
+        </div>
+
+        <!-- Right side: the form, and the thank-you box shown after sending. -->
+        <div>
+          <form id="enquiry-form" class="form">
+
+            <!-- A hidden trap for spam robots. Real visitors never see it. -->
+            <input type="checkbox" name="botcheck" class="honeypot" tabindex="-1" autocomplete="off">
+
+            <div class="field">
+              <label for="name">Your name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required>
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+
+            <div class="two-columns">
+              <div class="field">
+                <label for="checkin">Check-in</label>
+                <input id="checkin" name="check_in" type="date" required>
+              </div>
+              <div class="field">
+                <label for="checkout">Check-out</label>
+                <input id="checkout" name="check_out" type="date" required>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="room">Room</label>
+              <!-- data-price and data-guests are read by script.js to work out the estimate. -->
+              <select id="room" name="room" required>
+                <option value="Garden room" data-price="750" data-guests="2">Garden room (R750 per night)</option>
+                <option value="Sea-view room" data-price="980" data-guests="2">Sea-view room (R980 per night)</option>
+                <option value="Family room" data-price="1350" data-guests="4">Family room (R1,350 per night)</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="guests">Guests</label>
+              <input id="guests" name="guests" type="number" inputmode="numeric" min="1" value="2" required>
+              <small id="guests-hint"></small>
+            </div>
+
+            <div class="field">
+              <label for="message">Message (optional)</label>
+              <textarea id="message" name="message" rows="3"></textarea>
+            </div>
+
+            <!-- The estimate box. aria-live makes screen readers read out changes. -->
+            <div class="estimate" aria-live="polite">
+              <span class="estimate-label">Estimate</span>
+              <span class="estimate-price" id="estimate-price"></span>
+              <span class="estimate-note" id="estimate-note"></span>
+            </div>
+
+            <!-- Errors appear here if something goes wrong when sending. -->
+            <p class="form-error" role="alert"></p>
+
+            <button class="btn btn-dark" type="submit">Send enquiry</button>
+            <p class="form-note">We use your details only to reply to you. <a href="../privacy/">Privacy notice</a></p>
+
+            <noscript><p class="form-error">Please turn on JavaScript to send this form.</p></noscript>
+          </form>
+
+          <!-- Shown instead of the form once it has been sent. -->
+          <div id="success" class="success" tabindex="-1" hidden>
+            <svg class="tick" viewBox="0 0 48 48" aria-hidden="true">
+              <circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="3"/>
+              <path d="M14 25l7 7 13-15" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h3>Enquiry sent</h3>
+            <p>Thanks, <span class="who"></span>. Because this is a demo, your message went to Durban Web Studio, who will reply by email.</p>
+            <button class="btn btn-outline" type="button">Send another enquiry</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================
+         SECTION: YOUR STAY
+         Address, check-in and check-out times, reception hours.
+         ==================================================== -->
+    <section class="section" id="stay">
+      <div class="wrap">
+        <h2>Your stay</h2>
+
+        <div class="stay-grid">
+          <address>
+            8 Sample Avenue<br>
+            The Bluff, Durban
+          </address>
+
+          <ul class="times">
+            <li><span>Check-in</span><span>From 2:00 pm</span></li>
+            <li><span>Check-out</span><span>By 10:00 am</span></li>
+            <li><span>Reception</span><span>7:00 am to 8:00 pm</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================================================
+       SECTION: FOOTER
+       Says this is a demo, and links back to the studio's site.
+       ====================================================== -->
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>Demo design by Durban Web Studio. Bluff View Guest House is a made-up business.</p>
+      <p><a href="../">Back to Durban Web Studio</a></p>
+    </div>
+  </footer>
+
+  <!-- ======================================================
+       SECTION: PHONE BUTTON
+       A button fixed to the bottom of the screen on phones only.
+       ====================================================== -->
+  <div class="mobile-bar">
+    <a class="btn btn-dark" href="#book">Check availability</a>
+  </div>
+
+  <!-- ======================================================
+       SCRIPTS (must stay in this order)
+       1. config.js: your access key. 2. form.js: sends the form.
+       3. script.js: this page's own estimate and buttons.
+       ====================================================== -->
+  <script src="../assets/config.js"></script>
+  <script src="../assets/form.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

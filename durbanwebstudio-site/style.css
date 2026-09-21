@@ -1,0 +1,247 @@
+/* =====================================================
+   DURBAN WEB STUDIO: the main site (home and privacy pages)
+
+   This file styles the whole page. The sections are in the
+   same order as the page itself, from top to bottom.
+   Phone styles come first. The last part of the file
+   adjusts things for bigger screens.
+   ===================================================== */
+
+
+/* ---------- 1. COLOURS AND FONTS ----------
+   Change a colour here and it changes everywhere it is used. */
+:root {
+  --navy: #12263A;      /* page background */
+  --navy-light: #1A3550; /* cards and the form */
+  --amber: #F0B44C;     /* accent: buttons and links */
+  --foam: #F2F7F6;      /* main text */
+  --soft: #A9BDC9;      /* softer text */
+  --line: rgba(242, 247, 246, 0.2);   /* thin dividing lines */
+  --heading-font: "Bricolage Grotesque", Arial, sans-serif;
+  --body-font: "Figtree", Arial, sans-serif;
+}
+
+
+/* ---------- 2. BASICS: rules that apply to the whole page ---------- */
+
+/* Makes padding and borders count inside a box's width (easier maths). */
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;          /* buttons glide to their section */
+  scroll-padding-top: 70px;         /* stops the sticky header covering the section you jump to */
+}
+
+body {
+  margin: 0;
+  font-family: var(--body-font);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--foam);
+  background: var(--navy);
+}
+
+/* Anything with the "hidden" attribute stays hidden. */
+[hidden] { display: none !important; }
+
+h1, h2, h3 {
+  margin: 0;
+  font-family: var(--heading-font);
+  line-height: 1.05;
+}
+
+a { color: inherit; }
+
+/* A clear outline when someone uses the keyboard. */
+:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
+
+/* Keeps content a comfortable width and centred. */
+.wrap {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* The "skip to content" link: off-screen until a keyboard user tabs to it. */
+.skip-link { position: absolute; left: -999px; }
+.skip-link:focus {
+  left: 10px;
+  top: 10px;
+  z-index: 20;
+  padding: 10px 14px;
+  color: var(--navy);
+  background: var(--foam);
+}
+
+/* Each big block of the page gets the same space above and below. */
+.section { padding: 60px 0; }
+.section h2 { font-size: 32px; letter-spacing: -1px; }
+
+.small-note { margin: 24px 0 0; font-size: 15px; color: var(--soft); }
+
+
+/* ---------- 3. BUTTONS (rounded "pill" shape) ---------- */
+.btn {
+  display: inline-block;
+  padding: 15px 28px;
+  border: 2px solid var(--amber);
+  border-radius: 50px;
+  font-family: var(--body-font);
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn-amber { background: var(--amber); color: var(--navy); }
+.btn-amber:hover { background: #F6C874; border-color: #F6C874; }
+.btn-outline { background: transparent; color: var(--amber); }
+.btn-outline:hover { background: var(--amber); color: var(--navy); }
+.btn-small { padding: 10px 18px; font-size: 15px; }
+
+
+/* ---------- 4. HEADER: logo and links ---------- */
+.site-header {
+  position: sticky;                 /* stays at the top while scrolling */
+  top: 0;
+  z-index: 5;
+  background: var(--navy);
+  border-bottom: 1px solid var(--line);
+}
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--heading-font);
+  font-size: 19px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.brand svg { width: 40px; height: 36px; }
+.nav-link { display: none; }        /* text links only show on bigger screens */
+
+
+/* ---------- 5. HERO: the opening headline ---------- */
+.hero { padding: 60px 0 50px; }
+.hero h1 { max-width: 620px; font-size: 46px; font-weight: 700; letter-spacing: -2px; line-height: 0.98; }
+.hero-text { max-width: 480px; margin: 22px 0 0; font-size: 20px; color: var(--soft); }
+
+
+/* ---------- 6. EXAMPLES: three cards ---------- */
+.card-grid { display: grid; gap: 24px; margin-top: 30px; }   /* stacked on phones */
+
+.card {
+  display: block;                   /* makes the whole card clickable */
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--navy-light);
+  text-decoration: none;
+}
+.card:hover { border-color: var(--amber); transform: translateY(-4px); }
+.card img { display: block; width: 100%; height: auto; }
+.card-text { padding: 20px 20px 24px; }
+.card h3 { font-size: 22px; letter-spacing: -0.5px; }
+.card p { margin: 4px 0 0; color: var(--soft); }
+.card span { display: inline-block; margin-top: 14px; font-weight: 600; color: var(--amber); text-decoration: underline; }
+
+
+/* ---------- 7. CONTACT: heading and the form ---------- */
+.contact-section { border-top: 1px solid var(--line); }
+.contact-grid { display: grid; gap: 30px; }   /* one column on phones */
+.contact-text { max-width: 420px; margin: 18px 0 26px; font-size: 19px; color: var(--soft); }
+
+/* The form card. */
+.form {
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--navy-light);
+}
+.field { margin-bottom: 16px; }
+.field label { display: block; margin-bottom: 6px; font-size: 15px; font-weight: 600; }
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid rgba(242, 247, 246, 0.35);
+  border-radius: 10px;
+  color: var(--foam);
+  background: var(--navy);
+  font-family: inherit;             /* use the page font, not the browser default */
+  font-size: 16px;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus { outline: 3px solid var(--amber); }
+.field input:user-invalid,
+.field textarea:user-invalid { border-color: #FF7A66; }   /* red border after a mistake */
+
+.honeypot { display: none; }        /* the hidden spam trap */
+
+.form-error { margin: 0 0 12px; font-weight: 600; color: #FF9C8C; }
+.form-error:empty { display: none; }   /* no space when there is no error */
+.form .btn { width: 100%; }
+.form-note { margin: 14px 0 0; font-size: 14px; color: var(--soft); }
+
+/* The thank-you card shown after sending. */
+.success {
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--navy-light);
+}
+.success .tick { width: 52px; height: 52px; color: var(--amber); }
+.success h3 { margin: 12px 0; font-size: 26px; }
+.success p { margin: 0 0 20px; }
+
+
+/* ---------- 8. PRIVACY PAGE TEXT ---------- */
+.notice { padding: 50px 0 70px; }
+.notice h1 { font-size: 40px; letter-spacing: -1.5px; }
+.notice h2 { margin-top: 36px; font-size: 22px; letter-spacing: -0.5px; }
+.notice p, .notice li { max-width: 640px; color: var(--soft); }
+.notice p { margin: 12px 0 0; }
+.notice ul { margin: 12px 0 0; padding-left: 22px; }
+
+
+/* ---------- 9. FOOTER ---------- */
+.site-footer {
+  padding: 26px 0 34px;
+  border-top: 1px solid var(--line);
+  color: var(--soft);
+  font-size: 15px;
+}
+.footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 30px; }
+.site-footer p { margin: 0; }
+
+
+/* ---------- 10. BIGGER SCREENS (tablets and computers) ----------
+   Everything below only applies when the screen is 700px wide or more. */
+@media (min-width: 700px) {
+  .nav-link { display: inline-block; margin-right: 26px; font-weight: 600; text-decoration: none; }
+
+  .hero { padding: 100px 0 80px; }
+  .hero h1 { font-size: 84px; max-width: 800px; }
+
+  .section { padding: 90px 0; }
+  .section h2 { font-size: 44px; }
+
+  .card-grid { grid-template-columns: repeat(3, 1fr); gap: 28px; }   /* cards side by side */
+  .contact-grid { grid-template-columns: 0.8fr 1.2fr; gap: 60px; align-items: start; }
+}
+
+
+/* ---------- 11. REDUCED MOTION ----------
+   For people who have asked their device to limit movement. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .card:hover { transform: none; }
+}

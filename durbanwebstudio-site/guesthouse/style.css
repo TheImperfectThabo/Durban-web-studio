@@ -1,0 +1,335 @@
+/* =====================================================
+   BLUFF VIEW GUEST HOUSE: demo site by Durban Web Studio
+
+   This file styles the whole page. The sections are in the
+   same order as the page itself, from top to bottom.
+   Phone styles come first. The last part of the file
+   adjusts things for bigger screens.
+   ===================================================== */
+
+
+/* ---------- 1. COLOURS AND FONTS ----------
+   Change a colour here and it changes everywhere it is used. */
+:root {
+  --ink: #1F2A26;        /* dark green-black: text and buttons */
+  --page: #F4F6F3;       /* soft grey-green page background */
+  --sage: #4E6B5D;       /* deep sage green: the booking section */
+  --sage-light: #DCE9E4; /* pale green: estimate box */
+  --gold: #B8893B;       /* small gold accents */
+  --white: #FFFFFF;
+  --grey: #4A5852;       /* softer text */
+  --line: #D3DBD5;       /* thin dividing lines */
+  --heading-font: "Instrument Serif", Georgia, serif;
+  --body-font: "Instrument Sans", Arial, sans-serif;
+}
+
+
+/* ---------- 2. BASICS: rules that apply to the whole page ---------- */
+
+/* Makes padding and borders count inside a box's width (easier maths). */
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;          /* buttons glide to their section */
+  scroll-padding-top: 70px;         /* stops the sticky header covering the section you jump to */
+}
+
+body {
+  margin: 0;
+  padding-bottom: 80px;             /* room for the phone button at the bottom */
+  font-family: var(--body-font);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--page);
+}
+
+/* Anything with the "hidden" attribute stays hidden. */
+[hidden] { display: none !important; }
+
+h1, h2, h3 {
+  margin: 0;
+  font-family: var(--heading-font);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+a { color: inherit; }
+
+/* A clear outline when someone uses the keyboard. */
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+/* Keeps content a comfortable width and centred. */
+.wrap {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* The "skip to content" link: off-screen until a keyboard user tabs to it. */
+.skip-link { position: absolute; left: -999px; }
+.skip-link:focus {
+  left: 10px;
+  top: 10px;
+  z-index: 20;
+  padding: 10px 14px;
+  background: var(--white);
+}
+
+/* Each big block of the page gets the same space above and below. */
+.section { padding: 70px 0; }
+.section h2 { font-size: 40px; }
+.section-line { border-top: 1px solid var(--line); }   /* thin line above a section */
+
+
+/* ---------- 3. BUTTONS ---------- */
+.btn {
+  display: inline-block;
+  padding: 15px 26px;
+  border: 1.5px solid var(--ink);
+  border-radius: 3px;
+  font-family: var(--body-font);
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn-dark { background: var(--ink); color: var(--white); }
+.btn-dark:hover { background: var(--sage); border-color: var(--sage); }
+.btn-outline { background: transparent; color: var(--ink); }
+.btn-outline:hover { background: var(--ink); color: var(--white); }
+.btn-small { padding: 10px 16px; font-size: 15px; }
+
+
+/* ---------- 4. HEADER: the bar at the top ---------- */
+.site-header {
+  position: sticky;                 /* stays at the top while scrolling */
+  top: 0;
+  z-index: 5;
+  background: var(--page);
+  border-bottom: 1px solid var(--line);
+}
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+}
+.brand { font-family: var(--heading-font); font-size: 26px; text-decoration: none; }
+.nav-link { display: none; }        /* text links only show on bigger screens */
+
+
+/* ---------- 5. HERO: the opening section ---------- */
+.hero { padding: 50px 0 60px; }
+.hero-grid { display: grid; gap: 36px; }   /* one column on phones */
+.hero h1 { font-size: 60px; letter-spacing: -1px; }
+.hero-text { max-width: 440px; margin: 22px 0 0; font-size: 20px; color: var(--grey); }
+.hero-buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+
+/* The sunrise picture: coloured bands make the sky and sea.
+   Each band is "colour start% end%" in the gradient below. */
+.view {
+  position: relative;               /* lets the sun be placed inside it */
+  height: 260px;
+  border-radius: 8px;
+  background: linear-gradient(
+    #E6EFEA 0% 56%,                 /* sky */
+    #A9C6BB 56% 74%,                /* far water */
+    #7FA595 74% 88%,                /* nearer water */
+    #4E6B5D 88% 100%                /* beach */
+  );
+  animation: fade-up 1s ease-out;
+}
+.sun {
+  position: absolute;
+  top: 20%;
+  right: 24%;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #F1D48E;
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+
+/* ---------- 6. ROOMS: a list of three rows ---------- */
+.room-list { margin-top: 30px; border-top: 1.5px solid var(--ink); }
+.room { padding: 24px 0; border-bottom: 1px solid var(--line); }
+.room h3 { font-size: 32px; }
+.room p { margin: 6px 0 0; color: var(--grey); }
+.room .rate { font-weight: 600; color: var(--ink); }
+.room .rate small { font-weight: 400; font-size: 15px; color: var(--grey); }
+.room-link { display: inline-block; margin-top: 10px; font-weight: 600; color: var(--sage); }
+
+
+/* ---------- 7. INCLUDED: list with gold squares ---------- */
+.included-list { max-width: 520px; margin: 26px 0 0; padding: 0; list-style: none; }
+.included-list li {
+  position: relative;
+  padding: 13px 0 13px 26px;        /* space on the left for the square */
+  border-bottom: 1px solid var(--line);
+}
+.included-list li::before {         /* the small gold square */
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 22px;
+  width: 9px;
+  height: 9px;
+  background: var(--gold);
+}
+
+
+/* ---------- 8. BOOKING SECTION (green, with the form) ---------- */
+.book-section { background: var(--sage); color: var(--white); }
+.book-grid { display: grid; gap: 30px; }   /* one column on phones */
+.book-text { max-width: 440px; margin: 20px 0 0; font-size: 19px; }
+
+/* The dashed note that explains this is a demo. */
+.demo-note {
+  max-width: 440px;
+  margin: 22px 0 0;
+  padding: 14px 16px;
+  border: 1px dashed rgba(255, 255, 255, 0.7);
+  border-radius: 3px;
+  font-size: 15px;
+}
+
+/* The white form card. */
+.form {
+  padding: 24px;
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--ink);
+}
+.field { margin-bottom: 16px; }
+.field label { display: block; margin-bottom: 6px; font-size: 15px; font-weight: 500; }
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1.5px solid #B9C4BD;
+  border-radius: 3px;
+  background: var(--white);
+  font-family: inherit;             /* use the page font, not the browser default */
+  font-size: 16px;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus { outline: 3px solid var(--sage); }
+.field input:user-invalid,
+.field textarea:user-invalid { border-color: #B23A2E; }   /* red border after a mistake */
+.field small { display: block; margin-top: 6px; font-size: 14px; color: var(--grey); }
+
+/* Two fields side by side. "minmax(0, 1fr)" stops date boxes
+   from pushing the layout wider than the screen. */
+.two-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+}
+
+.honeypot { display: none; }        /* the hidden spam trap */
+
+/* The pale green estimate box. */
+.estimate {
+  margin-bottom: 16px;
+  padding: 16px;
+  border-radius: 4px;
+  background: var(--sage-light);
+}
+.estimate-label { display: block; font-size: 14px; color: var(--grey); }
+.estimate-price { display: block; margin: 4px 0; font-family: var(--heading-font); font-size: 32px; line-height: 1.1; }
+.estimate-note { display: block; font-size: 14px; color: var(--grey); }
+
+.form-error { margin: 0 0 12px; font-weight: 600; color: #B23A2E; }
+.form-error:empty { display: none; }   /* no space when there is no error */
+.form .btn { width: 100%; }
+.form-note { margin: 14px 0 0; font-size: 14px; color: var(--grey); }
+
+/* The thank-you card shown after sending. */
+.success {
+  padding: 28px;
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--ink);
+}
+.success .tick { width: 52px; height: 52px; color: var(--sage); }
+.success h3 { margin: 12px 0; font-size: 34px; }
+.success p { margin: 0 0 20px; }
+
+
+/* ---------- 9. YOUR STAY: address and times ---------- */
+.stay-grid { display: grid; gap: 26px; margin-top: 26px; }
+address { font-size: 20px; font-style: normal; line-height: 1.5; }
+.times { max-width: 420px; margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+.times li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+
+/* ---------- 10. FOOTER ---------- */
+.site-footer {
+  padding: 28px 0 34px;
+  background: var(--ink);
+  color: #B7C4BD;
+  font-size: 15px;
+}
+.footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 30px; }
+.site-footer p { margin: 0; }
+
+
+/* ---------- 11. PHONE BUTTON: fixed to the bottom on phones ---------- */
+.mobile-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  padding: 12px 20px;
+  background: var(--page);
+  border-top: 1px solid var(--line);
+}
+.mobile-bar .btn { display: block; }
+
+
+/* ---------- 12. BIGGER SCREENS (tablets and computers) ----------
+   Everything below only applies when the screen is 700px wide or more. */
+@media (min-width: 700px) {
+  body { padding-bottom: 0; }
+  .mobile-bar { display: none; }              /* no phone button needed */
+
+  .nav-link { display: inline-block; margin-right: 26px; font-weight: 500; text-decoration: none; }
+
+  .hero { padding: 90px 0 100px; }
+  .hero-grid { grid-template-columns: 1.1fr 0.9fr; align-items: center; gap: 60px; }
+  .hero h1 { font-size: 100px; }
+  .view { height: 360px; }
+
+  .section { padding: 100px 0; }
+  .section h2 { font-size: 52px; }
+
+  /* Each room becomes one wide row: name, description, price, link. */
+  .room { display: grid; grid-template-columns: 1fr 1.5fr 0.6fr auto; align-items: center; gap: 24px; }
+  .room p, .room-link { margin: 0; }
+
+  .book-grid { grid-template-columns: 0.9fr 1.1fr; gap: 60px; align-items: start; }
+  .stay-grid { grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+}
+
+
+/* ---------- 13. REDUCED MOTION ----------
+   For people who have asked their device to limit movement. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .view { animation: none; }
+}

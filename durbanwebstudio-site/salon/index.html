@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Amber Tide Hair Studio | Demo design by Durban Web Studio</title>
+  <meta name="description" content="A demo website for a made-up Durban hair salon, designed by Durban Web Studio.">
+
+  <!-- Keeps this made-up business out of Google, so nobody mistakes it for a real one. -->
+  <meta name="robots" content="noindex">
+
+  <!-- The small icon shown in the browser tab. -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- FONTS: loaded from Google Fonts. Bricolage Grotesque for headings, Figtree for text. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- All the styling for this page lives in style.css. -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="top">
+
+  <!-- Lets keyboard users jump straight past the menu. Hidden until tabbed to. -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ======================================================
+       SECTION: HEADER
+       The bar at the top. It stays visible while you scroll,
+       so the appointment button is always within reach.
+       ====================================================== -->
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top">Amber Tide</a>
+      <nav>
+        <a class="nav-link" href="#prices">Prices</a>
+        <a class="nav-link" href="#visit">Visit</a>
+        <a class="btn btn-coral btn-small" href="#appointment">Request appointment</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ======================================================
+       SECTION: HERO
+       The opening section: the name, a short welcome, two buttons,
+       and three coloured arches made from plain CSS shapes.
+       ====================================================== -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Amber Tide<span>Hair Studio</span></h1>
+        <p class="hero-text">Cuts, colour and treatments in Berea, Durban. Request your next appointment in a minute.</p>
+        <div class="hero-buttons">
+          <a class="btn btn-coral" href="#appointment">Request an appointment</a>
+          <a class="btn btn-outline" href="#prices">See prices</a>
+        </div>
+      </div>
+
+      <!-- Three arches. Decoration only (aria-hidden hides them from screen readers). -->
+      <div class="arches" aria-hidden="true">
+        <span class="arch arch-1"></span>
+        <span class="arch arch-2"></span>
+        <span class="arch arch-3"></span>
+      </div>
+    </div>
+  </section>
+
+  <main id="main">
+
+    <!-- ====================================================
+         SECTION: PRICES
+         The price list. Each "Request" link scrolls to the form
+         and picks that service (see script.js).
+         ==================================================== -->
+    <section class="section" id="prices">
+      <div class="wrap">
+        <h2>Prices</h2>
+
+        <div class="price-list">
+          <div class="price-row">
+            <div>
+              <h3>Cut and blow-dry</h3>
+              <p>About 45 minutes</p>
+            </div>
+            <div class="price-side">
+              <span class="price">R350</span>
+              <a class="price-link" href="#appointment" data-choose="Cut and blow-dry">Request</a>
+            </div>
+          </div>
+
+          <div class="price-row">
+            <div>
+              <h3>Full-head colour</h3>
+              <p>About 2 hours</p>
+            </div>
+            <div class="price-side">
+              <span class="price">from R900</span>
+              <a class="price-link" href="#appointment" data-choose="Full-head colour">Request</a>
+            </div>
+          </div>
+
+          <div class="price-row">
+            <div>
+              <h3>Highlights</h3>
+              <p>About 2.5 hours</p>
+            </div>
+            <div class="price-side">
+              <span class="price">from R1,100</span>
+              <a class="price-link" href="#appointment" data-choose="Highlights">Request</a>
+            </div>
+          </div>
+
+          <div class="price-row">
+            <div>
+              <h3>Keratin treatment</h3>
+              <p>About 3 hours</p>
+            </div>
+            <div class="price-side">
+              <span class="price">from R1,500</span>
+              <a class="price-link" href="#appointment" data-choose="Keratin treatment">Request</a>
+            </div>
+          </div>
+
+          <div class="price-row">
+            <div>
+              <h3>Trim</h3>
+              <p>About 20 minutes</p>
+            </div>
+            <div class="price-side">
+              <span class="price">R180</span>
+              <a class="price-link" href="#appointment" data-choose="Trim">Request</a>
+            </div>
+          </div>
+        </div>
+
+        <p class="small-note">Prices depend on hair length and thickness. Send us a message for an exact quote.</p>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         SECTION: APPOINTMENT FORM
+         A working form. Choose a service and the green box shows
+         its price guide (see script.js). When sent, the details
+         are emailed through Web3Forms.
+         ==================================================== -->
+    <section class="section appointment-section" id="appointment">
+      <div class="wrap appointment-grid">
+
+        <!-- Left side: heading, explanation, and a note that this is a demo. -->
+        <div>
+          <h2>Request an appointment</h2>
+          <p class="appointment-text">Choose a service and a day. We reply by email to confirm a time.</p>
+          <p class="demo-note">Try it. This form works, but the salon is made up, so your message goes to Durban Web Studio.</p>
+        </div>
+
+        <!-- Right side: the form, and the thank-you box shown after sending. -->
+        <div>
+          <form id="enquiry-form" class="form">
+
+            <!-- A hidden trap for spam robots. Real visitors never see it. -->
+            <input type="checkbox" name="botcheck" class="honeypot" tabindex="-1" autocomplete="off">
+
+            <div class="field">
+              <label for="name">Your name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required>
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+
+            <div class="two-columns">
+              <div class="field">
+                <label for="service">Service</label>
+                <!-- data-price and data-time are read by script.js to fill the price guide. -->
+                <select id="service" name="service" required>
+                  <option value="Cut and blow-dry" data-price="R350" data-time="About 45 minutes">Cut and blow-dry</option>
+                  <option value="Full-head colour" data-price="from R900" data-time="About 2 hours">Full-head colour</option>
+                  <option value="Highlights" data-price="from R1,100" data-time="About 2.5 hours">Highlights</option>
+                  <option value="Keratin treatment" data-price="from R1,500" data-time="About 3 hours">Keratin treatment</option>
+                  <option value="Trim" data-price="R180" data-time="About 20 minutes">Trim</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="day">Preferred day</label>
+                <select id="day" name="preferred_day" required>
+                  <option value="Any day">Any day</option>
+                  <option value="Tuesday">Tuesday</option>
+                  <option value="Wednesday">Wednesday</option>
+                  <option value="Thursday">Thursday</option>
+                  <option value="Friday">Friday</option>
+                  <option value="Saturday">Saturday</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="message">Message (optional)</label>
+              <textarea id="message" name="message" rows="4"></textarea>
+            </div>
+
+            <!-- The price guide box. aria-live makes screen readers read out changes. -->
+            <div class="estimate" aria-live="polite">
+              <span class="estimate-label">Price guide</span>
+              <span class="estimate-price" id="estimate-price"></span>
+              <span class="estimate-note" id="estimate-note"></span>
+            </div>
+
+            <!-- Errors appear here if something goes wrong when sending. -->
+            <p class="form-error" role="alert"></p>
+
+            <button class="btn btn-coral" type="submit">Request appointment</button>
+            <p class="form-note">We use your details only to reply to you. <a href="../privacy/">Privacy notice</a></p>
+
+            <noscript><p class="form-error">Please turn on JavaScript to send this form.</p></noscript>
+          </form>
+
+          <!-- Shown instead of the form once it has been sent. -->
+          <div id="success" class="success" tabindex="-1" hidden>
+            <svg class="tick" viewBox="0 0 48 48" aria-hidden="true">
+              <circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="3"/>
+              <path d="M14 25l7 7 13-15" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h3>Request sent</h3>
+            <p>Thanks, <span class="who"></span>. Because this is a demo, your message went to Durban Web Studio, who will reply by email.</p>
+            <button class="btn btn-outline" type="button">Send another request</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================
+         SECTION: VISIT
+         A dark band with the address and opening hours.
+         ==================================================== -->
+    <section class="section visit-section" id="visit">
+      <div class="wrap">
+        <h2>Visit us</h2>
+
+        <div class="visit-grid">
+          <address>
+            12 Sample Road<br>
+            Berea, Durban
+          </address>
+
+          <ul class="hours">
+            <li><span>Tuesday to Friday</span><span>9:00 am to 5:00 pm</span></li>
+            <li><span>Saturday</span><span>8:30 am to 2:00 pm</span></li>
+            <li class="closed"><span>Sunday and Monday</span><span>Closed</span></li>
+          </ul>
+        </div>
+
+        <a class="btn btn-coral" href="#appointment">Request an appointment</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================================================
+       SECTION: FOOTER
+       Says this is a demo, and links back to the studio's site.
+       ====================================================== -->
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>Demo design by Durban Web Studio. Amber Tide Hair Studio is a made-up business.</p>
+      <p><a href="../">Back to Durban Web Studio</a></p>
+    </div>
+  </footer>
+
+  <!-- ======================================================
+       SECTION: PHONE BUTTON
+       A button fixed to the bottom of the screen on phones only.
+       ====================================================== -->
+  <div class="mobile-bar">
+    <a class="btn btn-coral" href="#appointment">Request an appointment</a>
+  </div>
+
+  <!-- ======================================================
+       SCRIPTS (must stay in this order)
+       1. config.js: your access key. 2. form.js: sends the form.
+       3. script.js: this page's own price guide and buttons.
+       ====================================================== -->
+  <script src="../assets/config.js"></script>
+  <script src="../assets/form.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

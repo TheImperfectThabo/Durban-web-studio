@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fire and Saffron Catering | Demo design by Durban Web Studio</title>
+  <meta name="description" content="A demo website for a made-up Durban caterer, designed by Durban Web Studio.">
+
+  <!-- Keeps this made-up business out of Google, so nobody mistakes it for a real one. -->
+  <meta name="robots" content="noindex">
+
+  <!-- The small icon shown in the browser tab. -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- FONTS: loaded from Google Fonts. Unbounded for headings, Manrope for text. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- All the styling for this page lives in style.css. -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="top">
+
+  <!-- Lets keyboard users jump straight past the menu. Hidden until tabbed to. -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ======================================================
+       SECTION: HEADER
+       The bar at the top. It stays visible while you scroll,
+       so the "Get a quote" button is always within reach.
+       ====================================================== -->
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top">Fire &amp; Saffron</a>
+      <nav>
+        <a class="nav-link" href="#packages">Packages</a>
+        <a class="nav-link" href="#menu">Menu</a>
+        <a class="btn btn-dark btn-small" href="#enquire">Get a quote</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ======================================================
+       SECTION: HERO
+       The first thing visitors see: the name, what the business
+       does, and two buttons. The spinning badge is decoration.
+       ====================================================== -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Fire &amp;<br>Saffron</h1>
+        <p class="hero-sub">Catering for weddings, functions and office events in Durban</p>
+        <p class="hero-text">Tell us the date and how many guests. We send a quote with menu options.</p>
+        <div class="hero-buttons">
+          <a class="btn btn-dark" href="#enquire">Ask for a quote</a>
+          <a class="btn btn-outline" href="#packages">See packages</a>
+        </div>
+      </div>
+
+      <!-- Decoration only (aria-hidden hides it from screen readers). -->
+      <svg class="badge" viewBox="0 0 200 200" aria-hidden="true">
+        <defs><path id="ring" d="M100,100 m-76,0 a76,76 0 1,1 152,0 a76,76 0 1,1 -152,0"/></defs>
+        <circle cx="100" cy="100" r="99" fill="#141210"/>
+        <text font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="700" fill="#F5B82E" textLength="470" lengthAdjust="spacing">
+          <textPath href="#ring">BUNNY CHOW STATION / ON REQUEST /</textPath>
+        </text>
+        <circle cx="100" cy="100" r="44" fill="none" stroke="#F5B82E" stroke-width="3"/>
+        <circle cx="100" cy="100" r="28" fill="#D6361F"/>
+      </svg>
+    </div>
+  </section>
+
+  <main id="main">
+
+    <!-- ====================================================
+         SECTION: PACKAGES
+         Three catering options with a "from" price per person.
+         The "Get a quote" buttons scroll to the form and pick
+         that package automatically (see script.js).
+         ==================================================== -->
+    <section class="section" id="packages">
+      <div class="wrap">
+        <h2>Packages</h2>
+
+        <div class="package-list">
+          <div class="package">
+            <h3>Function</h3>
+            <p class="package-guests">20 to 60 guests</p>
+            <p class="package-price">from R165 <small>per person</small></p>
+            <ul>
+              <li>Two mains</li>
+              <li>Two sides and a salad</li>
+              <li>One dessert</li>
+            </ul>
+            <a class="btn btn-outline btn-small" href="#enquire" data-choose="Function">Get a quote</a>
+          </div>
+
+          <!-- "package-hot" gives this card the yellow highlight. -->
+          <div class="package package-hot">
+            <h3>Wedding</h3>
+            <p class="package-guests">60 to 200 guests</p>
+            <p class="package-price">from R280 <small>per person</small></p>
+            <ul>
+              <li>Starter and three mains</li>
+              <li>Sides, salads and dessert</li>
+              <li>Serving staff included</li>
+            </ul>
+            <a class="btn btn-dark btn-small" href="#enquire" data-choose="Wedding">Get a quote</a>
+          </div>
+
+          <div class="package">
+            <h3>Office event</h3>
+            <p class="package-guests">10 to 100 guests</p>
+            <p class="package-price">from R120 <small>per person</small></p>
+            <ul>
+              <li>Buffet or lunch boxes</li>
+              <li>Delivered and set up</li>
+              <li>Tea and coffee on request</li>
+            </ul>
+            <a class="btn btn-outline btn-small" href="#enquire" data-choose="Office event">Get a quote</a>
+          </div>
+        </div>
+
+        <p class="small-note">The final price depends on the menu and the number of guests.</p>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         SECTION: MENU HIGHLIGHTS
+         A dark band listing typical dishes, in four columns.
+         ==================================================== -->
+    <section class="section menu-section" id="menu">
+      <div class="wrap">
+        <h2>Menu highlights</h2>
+
+        <div class="menu-grid">
+          <div>
+            <h3>Starters</h3>
+            <ul><li>Samoosas</li><li>Chicken wings</li><li>Mini bunny chows</li></ul>
+          </div>
+          <div>
+            <h3>Mains</h3>
+            <ul><li>Lamb curry</li><li>Chicken breyani</li><li>Slow-roasted beef</li><li>Vegetable curry</li></ul>
+          </div>
+          <div>
+            <h3>Sides</h3>
+            <ul><li>Sambals</li><li>Basmati rice</li><li>Roast potatoes</li><li>Fresh salads</li></ul>
+          </div>
+          <div>
+            <h3>Desserts</h3>
+            <ul><li>Malva pudding</li><li>Milk tart</li><li>Fruit platters</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         SECTION: HOW IT WORKS
+         Three simple steps, so a new customer knows what happens next.
+         ==================================================== -->
+    <section class="section" id="how">
+      <div class="wrap">
+        <h2>How it works</h2>
+
+        <div class="steps">
+          <div class="step">
+            <span class="step-number">1</span>
+            <p>Tell us the date, the place and how many guests are coming.</p>
+          </div>
+          <div class="step">
+            <span class="step-number">2</span>
+            <p>We send a quote with menu options to choose from.</p>
+          </div>
+          <div class="step">
+            <span class="step-number">3</span>
+            <p>Pay a deposit to secure your date. We plan the rest with you.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         SECTION: QUOTE FORM
+         A working form. Pick a package and a guest number and the
+         black box shows an estimate straight away (see script.js).
+         When sent, the details are emailed through Web3Forms.
+         ==================================================== -->
+    <section class="section enquire-section" id="enquire">
+      <div class="wrap enquire-grid">
+
+        <!-- Left side: heading and a note explaining this is a demo. -->
+        <div>
+          <h2>Ask for a quote</h2>
+          <p class="enquire-text">Tell us about your event. We reply with menu options and an exact price.</p>
+          <p class="demo-note">Try it. This form works, but the business is made up, so your message goes to Durban Web Studio.</p>
+          <p class="enquire-text">We cater in Durban, Umhlanga, Pinetown and the areas around them.</p>
+        </div>
+
+        <!-- Right side: the form, and the thank-you box shown after sending. -->
+        <div>
+          <form id="enquiry-form" class="form">
+
+            <!-- A hidden trap for spam robots. Real visitors never see it. -->
+            <input type="checkbox" name="botcheck" class="honeypot" tabindex="-1" autocomplete="off">
+
+            <div class="field">
+              <label for="name">Your name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required>
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+
+            <div class="two-columns">
+              <div class="field">
+                <label for="date">Event date</label>
+                <input id="date" name="event_date" type="date" required>
+              </div>
+              <div class="field">
+                <label for="guests">Guests</label>
+                <input id="guests" name="guests" type="number" inputmode="numeric" required>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="package">Package</label>
+              <!-- data-price, data-min and data-max are read by script.js to work out the estimate. -->
+              <select id="package" name="package" required>
+                <option value="Function" data-price="165" data-min="20" data-max="60">Function (from R165 per person)</option>
+                <option value="Wedding" data-price="280" data-min="60" data-max="200">Wedding (from R280 per person)</option>
+                <option value="Office event" data-price="120" data-min="10" data-max="100">Office event (from R120 per person)</option>
+              </select>
+              <small id="guests-hint"></small>
+            </div>
+
+            <div class="field">
+              <label for="message">Message (optional)</label>
+              <textarea id="message" name="message" rows="4"></textarea>
+            </div>
+
+            <!-- The estimate box. aria-live makes screen readers read out changes. -->
+            <div class="estimate" aria-live="polite">
+              <span class="estimate-label">Estimate</span>
+              <span class="estimate-price" id="estimate-price"></span>
+              <span class="estimate-note" id="estimate-note"></span>
+            </div>
+
+            <!-- Errors appear here if something goes wrong when sending. -->
+            <p class="form-error" role="alert"></p>
+
+            <button class="btn btn-dark" type="submit">Send quote request</button>
+            <p class="form-note">We use your details only to reply to you. <a href="../privacy/">Privacy notice</a></p>
+
+            <noscript><p class="form-error">Please turn on JavaScript to send this form.</p></noscript>
+          </form>
+
+          <!-- Shown instead of the form once it has been sent. -->
+          <div id="success" class="success" tabindex="-1" hidden>
+            <svg class="tick" viewBox="0 0 48 48" aria-hidden="true">
+              <circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="3"/>
+              <path d="M14 25l7 7 13-15" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h3>Request sent</h3>
+            <p>Thanks, <span class="who"></span>. Because this is a demo, your message went to Durban Web Studio, who will reply by email.</p>
+            <button class="btn btn-outline" type="button">Send another request</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================================================
+       SECTION: FOOTER
+       Says this is a demo, and links back to the studio's site.
+       ====================================================== -->
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>Demo design by Durban Web Studio. Fire and Saffron Catering is a made-up business.</p>
+      <p><a href="../">Back to Durban Web Studio</a></p>
+    </div>
+  </footer>
+
+  <!-- ======================================================
+       SECTION: PHONE BUTTON
+       A button fixed to the bottom of the screen on phones only.
+       ====================================================== -->
+  <div class="mobile-bar">
+    <a class="btn btn-dark" href="#enquire">Ask for a quote</a>
+  </div>
+
+  <!-- ======================================================
+       SCRIPTS (must stay in this order)
+       1. config.js: your access key. 2. form.js: sends the form.
+       3. script.js: this page's own estimate and buttons.
+       ====================================================== -->
+  <script src="../assets/config.js"></script>
+  <script src="../assets/form.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
